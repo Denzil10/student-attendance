@@ -23,9 +23,7 @@ function App() {
   // ADD STUDENT FN
   const AddStudent = () => {
     console.log("callback")
-    // window.alert("Student added");
-
-    const addStudent = async (t) => {
+    const addStudent = async () => {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
       const response = await Axios.post(
@@ -35,12 +33,10 @@ function App() {
           "name": name
         }
       )
-      response.then(
-        setAdded(1)
-      )
-
     }
-
+    addStudent().then(() => {
+      setAdded(added + 1)
+    })
   };
 
   const [datepicked, setPicked] = useState(findTodayDate());
@@ -62,8 +58,13 @@ function App() {
 
 
   //FETCH API
-  const [date, setDate] = useState("");
-  const [student, setStudent] = useState("");
+
+  // settign dummy for static site 
+  let dummy_student = [{ "roll": 1, "name": "Denzil", "status": 1, "checkin": "22:49:49", "out_status": 1, "checkout": "00:20:33" }, { "roll": 2, "name": "Naman", "status": 1, "checkin": "00:40:30", "out_status": 1, "checkout": "00:40:31" }, { "roll": 3, "name": "Sera", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 4, "name": "Manas", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 5, "name": "Sofia", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 6, "name": "Bhargav", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }]
+  let dummy_date = [{ "date": "2023-01-08", "status": 1 }, { "date": "2023-01-09", "status": 1 }, { "date": "2023-01-10", "status": 1 }]
+  const [date, setDate] = useState(dummy_date);
+  const [student, setStudent] = useState(dummy_student);
+
   const getDate = async () => {
     const response = await Axios.get('http://localhost:5000/calendar/fetch')
     setDate(response.data)
@@ -79,6 +80,9 @@ function App() {
     getStudent()
   }
     , [datepicked, added])
+
+  //dummy csv
+
 
 
   return (
