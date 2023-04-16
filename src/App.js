@@ -26,7 +26,7 @@ function App() {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
       const response = await Axios.post(
-        "http://localhost:5000/student",
+        "https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student",
         {
           "roll": roll,
           "name": name
@@ -65,11 +65,11 @@ function App() {
   const [student, setStudent] = useState(dummy_student);
 
   const getDate = async () => {
-    const response = await Axios.get('http://localhost:5000/calendar/fetch')
+    const response = await Axios.get('https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/fetch')
     setDate(response.data)
   }
   const getStudent = async () => {
-    const response = await Axios.get('http://localhost:5000/students', {})
+    const response = await Axios.get('https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/students', {})
     setStudent(response.data)
     console.log(response.data)
   }

@@ -41,7 +41,7 @@ const MarkA = () => {
 	//UPDATE DB
 	const updateStudent = async () => {
 		const response = await Axios.post(
-			"http://localhost:5000/student/update",
+			"https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student/update",
 			list
 		);
 	};
@@ -66,7 +66,7 @@ const Container = ({ date, student, datepicked, pickerFn, add }) => {
 
 	const updateDate = async (t) => {
 		const response = await Axios.post(
-			"http://localhost:5000/calendar/mark",
+			"https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/mark",
 			{
 				date: t,
 			}
