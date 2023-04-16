@@ -74,12 +74,13 @@ const Container = ({ date, student, datepicked, pickerFn, add }) => {
 	};
 
 	//if it is first visit add to DB and mark it
-	let statusText = "Attendance pending for today";
-	if (visit == 1) {
-		statusText = "";
-	} else {
-		updateDate(datepicked);
-	}
+	// let statusText = "Attendance pending for today";
+	// if (visit == 1) {
+	// 	statusText = "";
+	// } else {
+	// 	updateDate(datepicked);
+	// }
+	let statusText = "";
 
 	const findTotalP = () => {
 		var p = document.querySelectorAll(".status .btn-success");

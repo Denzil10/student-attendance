@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import Axios from 'axios';
 import Container from './components/Container';
 import { Alert } from 'bootstrap';
