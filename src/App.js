@@ -26,7 +26,7 @@ function App() {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
       const response = await Axios.post(
-        "http://localhost:5000/student/add",
+        "http://localhost:5000/student",
         {
           "roll": roll,
           "name": name
@@ -69,7 +69,7 @@ function App() {
     setDate(response.data)
   }
   const getStudent = async () => {
-    const response = await Axios.get('http://localhost:5000/student/fetch', {})
+    const response = await Axios.get('http://localhost:5000/students', {})
     setStudent(response.data)
     console.log(response.data)
   }
@@ -81,8 +81,6 @@ function App() {
     , [datepicked, added])
 
   //dummy csv
-
-
 
   return (
     <Container date={date} student={student} datepicked={datepicked} pickerFn={CheckDate} add={AddStudent} />
