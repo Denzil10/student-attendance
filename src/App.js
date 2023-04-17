@@ -61,6 +61,8 @@ function App() {
   // settign dummy for static site 
   let dummy_student = [{ "roll": 1, "name": "Denzil", "status": 1, "checkin": "22:49:49", "out_status": 1, "checkout": "00:20:33" }, { "roll": 2, "name": "Naman", "status": 1, "checkin": "00:40:30", "out_status": 1, "checkout": "00:40:31" }, { "roll": 3, "name": "Sera", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 4, "name": "Manas", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 5, "name": "Sofia", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }, { "roll": 6, "name": "Bhargav", "status": 0, "checkin": "--", "out_status": 0, "checkout": "--" }]
   let dummy_date = [{ "date": "2023-01-08", "status": 1 }, { "date": "2023-01-09", "status": 1 }, { "date": "2023-01-10", "status": 1 }]
+  dummy_student = []
+  dummy_date = []
   const [date, setDate] = useState(dummy_date);
   const [student, setStudent] = useState(dummy_student);
 
@@ -70,12 +72,12 @@ function App() {
   }
   const getStudent = async () => {
     const response = await Axios.get('https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/students', {})
-    setStudent(response.data)
+    setStudent(response.data.students)
     console.log(response.data)
   }
 
   useEffect(() => {
-    getDate()
+    // getDate()
     getStudent()
   }
     , [datepicked, added])

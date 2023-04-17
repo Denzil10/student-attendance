@@ -51,18 +51,18 @@ const MarkA = () => {
 
 //date is js object for some reason
 const Container = ({ date, student, datepicked, pickerFn, add }) => {
-	var visit = 0,
-		found = 0;
-	Object.keys(date).forEach((index) => {
-		var temp = date[index];
-		if (temp["date"] == datepicked) {
-			visit = temp["status"];
-			found = 1;
-		}
-	});
-	if (found == 0) {
-		console.log("not found");
-	}
+	// var visit = 0,
+	// 	found = 0;
+	// Object.keys(date).forEach((index) => {
+	// 	var temp = date[index];
+	// 	if (temp["date"] == datepicked) {
+	// 		visit = temp["status"];
+	// 		found = 1;
+	// 	}
+	// });
+	// if (found == 0) {
+	// 	console.log("not found");
+	// }
 
 	const updateDate = async (t) => {
 		const response = await Axios.post(
