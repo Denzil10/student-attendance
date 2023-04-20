@@ -26,10 +26,14 @@ function App() {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
       const response = await Axios.post(
-        "https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student",
+        "https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student/add",
         {
           "roll": roll,
-          "name": name
+          "name": name,
+          "status": "0",
+          "checkin": "--",
+          "out_status": "0",
+          "checkout": "--"
         }
       )
     }
