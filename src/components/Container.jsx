@@ -41,7 +41,7 @@ const MarkA = () => {
 	//UPDATE DB
 	const updateStudent = async () => {
 		const response = await Axios.post(
-			"https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student/update",
+			"https://2rsl1scefj.execute-api.eu-north-1.amazonaws.com/prod/student/update",
 			list
 		);
 	};

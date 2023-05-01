@@ -26,7 +26,7 @@ function App() {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
       const response = await Axios.post(
-        "https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/student/add",
+        "https://2rsl1scefj.execute-api.eu-north-1.amazonaws.com/prod/student/add",
         {
           "roll": roll,
           "name": name,
@@ -75,7 +75,7 @@ function App() {
     setDate(response.data)
   }
   const getStudent = async () => {
-    const response = await Axios.get('https://tn0h6hingg.execute-api.eu-north-1.amazonaws.com/prod/students', {})
+    const response = await Axios.get('https://2rsl1scefj.execute-api.eu-north-1.amazonaws.com/prod/students', {})
     setStudent(response.data.students)
     console.log(response.data)
   }
