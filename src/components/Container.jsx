@@ -10,6 +10,7 @@ const MarkA = () => {
 	//make array of current student info(current view)
 	let list = [];
 	let s_roll = document.querySelectorAll(".roll");
+	let s_name = document.querySelectorAll(".name");
 	let s_status = document.querySelectorAll(".status");
 	let s_checkin = document.querySelectorAll(".checkin");
 	let s_out_status = document.querySelectorAll(".out_status");
@@ -18,31 +19,34 @@ const MarkA = () => {
 	let temp = [];
 	for (let i = 0; i < n; i++) {
 		temp = [];
+		temp.push(s_roll[i].innerText);
+		temp.push(s_name[i].innerText);
+
 		if (s_status[i].innerText == "present") {
 			temp.push(1);
 		} else {
 			temp.push(0);
 		}
 		temp.push(s_checkin[i].innerText);
+
 		if (s_checkout[i].innerText == "--") {
 			temp.push(0);
 		} else {
 			temp.push(1);
 		}
 		temp.push(s_checkout[i].innerText);
-		temp.push(s_roll[i].innerText);
 
 		list.push(temp);
 	}
 	//extra last row is secret roll no. row
 
-	console.log("MarkA " + list);
+	console.log("MarkA ", JSON.stringify(list));
 
 	//UPDATE DB
 	const updateStudent = async () => {
 		const response = await Axios.post(
-			"https://2rsl1scefj.execute-api.eu-north-1.amazonaws.com/prod/student/update",
-			list
+			"https://2rsl1scefj.execute-api.eu-north-1.amazonaws.com/prod/students/update",
+			JSON.stringify(list)
 		);
 	};
 

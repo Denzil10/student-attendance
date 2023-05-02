@@ -21,7 +21,6 @@ function App() {
   const [added, setAdded] = useState(0);
   // ADD STUDENT FN
   const AddStudent = () => {
-    console.log("callback")
     const addStudent = async () => {
       let roll = document.getElementById("new_roll").value
       let name = document.getElementById("new_name").value
